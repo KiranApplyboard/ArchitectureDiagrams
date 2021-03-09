@@ -1,0 +1,16 @@
+@startuml
+autonumber
+actor CxUserRobot
+Participant API as api
+participant Applyboard as AB
+Participant Schoolportal as SP
+CxUserRobot -> Queue : GetApplicationID
+CxUserRobot -> api : LoginToApplyboard
+CxUserRobot -> api : GetApplicationData
+CxUserRobot -> api : GetApplicationCustomFields
+CxUserRobot -> SP : LoginToSchoolPortal
+CxUserRobot -> SP :GetStudentProfile
+CxUserRobot <-  SP : GetStudentProfile
+CxUserRobot -> AB : FindApplicationID
+CxUserRobot -> AB : ConvertSchoolStatusToABStatus
+@enduml
